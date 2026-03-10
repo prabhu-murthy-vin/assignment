@@ -1,0 +1,46 @@
+# Root-level ignores
+node_modules/
+build/
+dist/
+.env
+.env.local
+.env.development
+.env.production
+
+# Next.js ignores
+frontend-app/.next/
+frontend-app/node_modules/
+frontend-app/build/
+frontend-app/dist/
+
+# Express ignores
+backend-service/node_modules/
+backend-service/build/
+backend-service/dist/
+
+# Prisma ignores
+# prisma/.prisma/
+# prisma/schema.prisma
+# prisma/@prisma/client/
+# prisma/prisma/client/
+# prisma/prisma/migrations/
+
+# IDE and editor ignores
+.vscode/
+*.vscode/
+*.idea/
+
+# OS and system ignores
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs and debug ignores
+logs/
+debug.log
+*.log
+
+# Test and coverage ignores
+coverage/
+test-results/

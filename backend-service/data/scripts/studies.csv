@@ -1,0 +1,61 @@
+study_id,program_id,name,phase,study_type,start_date,end_date,enrollment_status,target_enrollment,actual_enrollment,principal_investigator
+STD00101,PRG001,Study-1-1,Phase III,Observational,2023-05-08,2023-05-19,Withdrawn,135,135,Dr. Lee
+STD00102,PRG001,Study-1-2,Phase IIa,Observational,2024-08-12,2025-09-14,Completed,244,53,Dr. Garcia
+STD00103,PRG001,Study-1-3,Phase IIa,Interventional,2022-08-25,2022-11-06,Withdrawn,398,101,Dr. Patel
+STD00201,PRG002,Study-2-1,Phase III,Interventional,2022-12-19,2023-05-06,Not yet recruiting,327,26,Dr. Lee
+STD00202,PRG002,Study-2-2,Phase III,Observational,2024-08-16,2025-01-06,Suspended,249,185,Dr. Chen
+STD00203,PRG002,Study-2-3,Phase I,Observational,2024-09-06,2026-02-13,"Active, not recruiting",52,6,Dr. Chen
+STD00301,PRG003,Study-3-1,Phase I,Observational,2022-08-03,2023-11-29,Not yet recruiting,189,103,Dr. Patel
+STD00302,PRG003,Study-3-2,Phase III,Observational,2024-11-22,2026-07-13,Completed,415,12,Dr. Chen
+STD00303,PRG003,Study-3-3,Phase IIa,Interventional,2023-05-15,2025-03-12,"Active, not recruiting",494,16,Dr. Patel
+STD00401,PRG004,Study-4-1,Phase IIa,Interventional,2024-06-26,2024-12-10,Enrolling by invitation,325,321,Dr. Patel
+STD00402,PRG004,Study-4-2,Phase IIb,Interventional,2022-03-12,2022-06-28,Completed,368,53,Dr. Garcia
+STD00403,PRG004,Study-4-3,Phase III,Observational,2022-01-25,2023-07-24,"Active, not recruiting",473,285,Dr. Lee
+STD00501,PRG005,Study-5-1,Phase IIb,Observational,2024-02-20,2024-07-11,Completed,257,129,Dr. Patel
+STD00502,PRG005,Study-5-2,Phase III,Observational,2023-03-09,2023-12-14,Terminated,150,77,Dr. Kim
+STD00503,PRG005,Study-5-3,Phase IIb,Observational,2022-01-07,2023-11-07,Not yet recruiting,144,23,Dr. Chen
+STD00601,PRG006,Study-6-1,Phase IIa,Interventional,2022-08-19,2024-08-16,Recruiting,421,241,Dr. Chen
+STD00602,PRG006,Study-6-2,Phase I,Observational,2023-01-01,2024-03-02,Withdrawn,438,24,Dr. Patel
+STD00603,PRG006,Study-6-3,Phase IIb,Interventional,2023-11-19,2025-01-14,Withdrawn,186,105,Dr. Kim
+STD00701,PRG007,Study-7-1,Phase III,Observational,2023-08-19,2025-07-07,Recruiting,461,337,Dr. Patel
+STD00702,PRG007,Study-7-2,Phase IIb,Observational,2024-10-15,2026-08-20,Completed,479,436,Dr. Kim
+STD00703,PRG007,Study-7-3,Phase I,Interventional,2022-02-04,2023-02-02,Terminated,444,413,Dr. Patel
+STD00801,PRG008,Study-8-1,Phase III,Interventional,2022-10-24,2023-02-23,"Active, not recruiting",68,2,Dr. Garcia
+STD00802,PRG008,Study-8-2,Phase IIa,Observational,2024-12-27,2025-12-22,Terminated,332,71,Dr. Chen
+STD00803,PRG008,Study-8-3,Phase IIb,Observational,2023-12-01,2025-10-25,"Active, not recruiting",292,136,Dr. Patel
+STD00901,PRG009,Study-9-1,Phase IIa,Observational,2022-08-06,2022-10-06,"Active, not recruiting",306,277,Dr. Patel
+STD00902,PRG009,Study-9-2,Phase IIa,Observational,2022-02-16,2022-11-12,Terminated,227,71,Dr. Lee
+STD00903,PRG009,Study-9-3,Phase IIa,Observational,2023-12-05,2025-06-13,Withdrawn,423,30,Dr. Garcia
+STD01001,PRG010,Study-10-1,Phase I,Observational,2024-10-01,2026-06-27,"Active, not recruiting",281,227,Dr. Patel
+STD01002,PRG010,Study-10-2,Phase IIb,Observational,2024-12-20,2026-04-06,Recruiting,234,75,Dr. Kim
+STD01003,PRG010,Study-10-3,Phase III,Interventional,2022-12-21,2023-09-27,Not yet recruiting,222,196,Dr. Lee
+STD01101,PRG011,Study-11-1,Phase IIb,Observational,2022-08-06,2022-12-30,Enrolling by invitation,191,69,Dr. Patel
+STD01102,PRG011,Study-11-2,Phase I,Interventional,2024-08-16,2026-05-21,Not yet recruiting,345,206,Dr. Garcia
+STD01103,PRG011,Study-11-3,Phase IIb,Observational,2022-09-15,2023-12-09,Completed,276,242,Dr. Lee
+STD01201,PRG012,Study-12-1,Phase IIa,Interventional,2023-08-07,2024-07-04,Enrolling by invitation,114,99,Dr. Kim
+STD01202,PRG012,Study-12-2,Phase III,Observational,2024-05-21,2024-06-01,Enrolling by invitation,481,287,Dr. Chen
+STD01203,PRG012,Study-12-3,Phase IIa,Observational,2023-03-30,2024-11-20,Not yet recruiting,226,224,Dr. Kim
+STD01301,PRG013,Study-13-1,Phase IIa,Interventional,2022-01-24,2022-05-26,Suspended,250,36,Dr. Chen
+STD01302,PRG013,Study-13-2,Phase IIa,Observational,2024-08-18,2025-03-23,Not yet recruiting,412,390,Dr. Lee
+STD01303,PRG013,Study-13-3,Phase IIa,Interventional,2023-03-12,2024-04-04,Withdrawn,230,35,Dr. Garcia
+STD01401,PRG014,Study-14-1,Phase I,Observational,2023-01-26,2023-10-15,Withdrawn,268,60,Dr. Kim
+STD01402,PRG014,Study-14-2,Phase I,Observational,2024-06-17,2025-01-16,Terminated,343,188,Dr. Garcia
+STD01403,PRG014,Study-14-3,Phase III,Observational,2022-02-22,2022-08-23,Enrolling by invitation,122,4,Dr. Patel
+STD01501,PRG015,Study-15-1,Phase IIb,Interventional,2024-01-05,2025-05-11,Not yet recruiting,95,14,Dr. Patel
+STD01502,PRG015,Study-15-2,Phase IIa,Observational,2023-03-09,2024-06-01,Enrolling by invitation,233,173,Dr. Lee
+STD01503,PRG015,Study-15-3,Phase IIa,Interventional,2022-02-11,2023-11-22,Recruiting,199,81,Dr. Garcia
+STD01601,PRG016,Study-16-1,Phase IIa,Interventional,2022-06-06,2024-06-04,Completed,165,165,Dr. Patel
+STD01602,PRG016,Study-16-2,Phase IIb,Observational,2023-09-29,2024-12-12,Recruiting,199,179,Dr. Garcia
+STD01603,PRG016,Study-16-3,Phase IIa,Interventional,2022-09-26,2022-12-29,Withdrawn,154,54,Dr. Chen
+STD01701,PRG017,Study-17-1,Phase IIb,Observational,2024-11-30,2025-01-30,Suspended,473,96,Dr. Garcia
+STD01702,PRG017,Study-17-2,Phase III,Observational,2022-07-25,2022-10-24,Completed,269,84,Dr. Chen
+STD01703,PRG017,Study-17-3,Phase IIa,Interventional,2024-08-12,2025-05-12,Suspended,269,35,Dr. Garcia
+STD01801,PRG018,Study-18-1,Phase III,Observational,2023-09-10,2024-12-18,"Active, not recruiting",146,25,Dr. Kim
+STD01802,PRG018,Study-18-2,Phase IIb,Observational,2022-04-07,2023-02-24,Not yet recruiting,424,122,Dr. Patel
+STD01803,PRG018,Study-18-3,Phase IIb,Interventional,2022-09-17,2024-08-15,Completed,470,416,Dr. Chen
+STD01901,PRG019,Study-19-1,Phase IIb,Observational,2024-07-05,2024-08-23,Recruiting,264,198,Dr. Lee
+STD01902,PRG019,Study-19-2,Phase I,Interventional,2022-09-05,2023-12-06,Enrolling by invitation,228,29,Dr. Lee
+STD01903,PRG019,Study-19-3,Phase III,Observational,2024-08-14,2025-07-03,Suspended,356,242,Dr. Kim
+STD02001,PRG020,Study-20-1,Phase IIb,Interventional,2024-08-28,2026-08-22,Terminated,265,100,Dr. Chen
+STD02002,PRG020,Study-20-2,Phase III,Observational,2023-06-09,2023-12-05,Terminated,111,89,Dr. Chen
+STD02003,PRG020,Study-20-3,Phase IIa,Interventional,2024-07-10,2024-11-19,Terminated,336,262,Dr. Patel

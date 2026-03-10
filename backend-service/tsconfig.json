@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",                     // Modern JavaScript features
+    "module": "NodeNext",                   // ESM + Node.js compatibility
+    "moduleResolution": "NodeNext",        // Aligns with Node.js ESM resolution
+    "lib": ["ESNext"],              // Include DOM if needed (e.g., for SSR)
+    "outDir": "./dist",                    // Output directory
+    "rootDir": ".",                    // Source directory
+    "strict": true,                         // Enable all strict type-checking options
+    "esModuleInterop": true,               // Allow default imports for CommonJS modules
+    "skipLibCheck": true,                  // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true, // Avoid case-sensitive issues
+    "noImplicitAny": true,                 // Disallow implicit `any` types
+    "noUnusedLocals": true,                // Warn on unused locals
+    "noUnusedParameters": true,            // Warn on unused parameters
+    "noFallthroughCasesInSwitch": true,    // Warn on fallthrough cases in switch
+    "noImplicitReturns": true,             // Warn on implicit returns
+    "noPropertyAccessFromIndexSignature": true, // Prefer indexed access
+    "allowJs": false,                       // Disallow .js files
+    "checkJs": false,                       // Disallow type-checking .js files
+    "resolveJsonModule": true,             // Allow importing .json files
+    "baseUrl": ".",                         // Base directory for module resolution
+    "paths": {
+      "@/*": ["prism/*"]                      // Alias for cleaner imports
+    },
+    "types": ["bun-types", "node"],
+    "experimentalDecorators": true,        // Enable decorators (e.g., for NestJS)
+    "useDefineForClassFields": true        // Modern class field definitions
+  },
+  "include": ["prisma/**/*", "src/**/*"],                 // Include all files in src/
+  "exclude": ["node_modules", "**/*.test.ts", "**/*.spec.ts"] // Exclude tests and node_modules
+}

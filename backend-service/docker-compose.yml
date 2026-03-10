@@ -1,0 +1,47 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: drug_dashboard
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  data-loader:
+    build:
+      context: .
+      dockerfile: Dockerfile.data-loader
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: "mysql://root:root@mysql:3306/drug_dashboard"
+      DB_HOST: "mysql"
+      DB_USER: "root"
+      DB_PASSWORD: "root"
+      DB_DATABASE: "drug_dashboard"
+      PRISMA_SEED: ${PRISMA_SEED:-true}
+    command: bun run init:db
+  
+  data-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.data-api
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: "mysql://root:root@mysql:3306/drug_dashboard"
+      DB_HOST: "mysql"
+      DB_USER: "root"
+      DB_PASSWORD: "root"
+      DB_DATABASE: "drug_dashboard"
+    command: bun run init:api

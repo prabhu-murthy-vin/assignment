@@ -1,0 +1,46 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Program {
+  id                String     @id @default(cuid())
+  name              String
+  therapeuticArea   String
+  phase             String
+  startDate         DateTime
+  endDate           DateTime
+  status            String
+  manager           String
+  studies           Study[]
+}
+
+model Study {
+  id                String     @id @default(cuid())
+  programId         String
+  program           Program    @relation(fields: [programId], references: [id])
+  name              String
+  phase             String
+  type              String
+  startDate         DateTime
+  endDate           DateTime
+  enrollmentStatus   String
+  targetEnrollment   Int
+  actualEnrollment   Int
+  principalInvestigator String
+  milestones        Milestone[]
+}
+
+model Milestone {
+  id                String     @id @default(cuid())
+  studyId           String
+  study             Study      @relation(fields: [studyId], references: [id])
+  name              String
+  plannedDate       DateTime
+  actualDate        DateTime?
+  status            String
+}
