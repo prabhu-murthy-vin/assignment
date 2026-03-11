@@ -1,9 +1,9 @@
 import { Slate } from "@/components/slate"
 import { SlateModel } from "@/models/slate"
 import { FunctionComponent } from "react"
-import TilesPage from "../page"
+import TilesPage from "../../page"
 import styles from "./styles.module.css"
-import StudiesPage from "../studies/page"
+import StudiesPage from "../../studies/page"
 
 const Container: FunctionComponent<{ slateData: SlateModel, progID: string, progName: string }> = ({ slateData, progID, progName }) => {
     return <div className={styles.container}>

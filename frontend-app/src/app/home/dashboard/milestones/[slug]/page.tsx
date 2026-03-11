@@ -42,7 +42,7 @@ const MilestoneView: FunctionComponent<{ items: MilestoneModel[], programName: s
             </span>
             <span>&gt;</span>
             <span>
-                {studyId}
+                Milestones for {studyId}
             </span>
         </header>
         <ul className={styles.milestone_items}>
