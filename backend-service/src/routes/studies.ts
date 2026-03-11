@@ -28,6 +28,18 @@ router.get('/program/:programId', async (req: Request, res: Response, next: Next
   }
 });
 
+router.get('/top/program/:programId', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const studies = await prisma.study.findMany({
+      where: { programId: req.params.programId },
+      include: { program: true, milestones: true },
+    });
+    res.json(studies);
+  } catch (error) {
+    next(error);
+  }
+});
+
 // GET study by ID
 router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
   try {

@@ -1,14 +1,31 @@
-import { FunctionComponent } from "react"
-import { RowModel } from "../model"
-import { CellView } from "./cell"
+"use client"
+
+import { FunctionComponent } from "react";
+import { RowModel } from "../model";
+import { CellView } from "./cell";
+import { nanoid } from "nanoid";
+import styles from "./cell.module.css"
 
 const RowView: FunctionComponent<RowModel> = (record) => {
 
-    return <div role="cell">
+    const _key = `${nanoid}_cell`
+
+    const _id = Object.keys(record)[0]
+
+    const recordData = record[_id];
+
+    const canRender = (val: any) => typeof val === "string" || typeof val === "number";
+
+    return <>
         {
-            Object.keys(record).map(cell => <CellView type={record[cell].type} value={record[cell].value} />)
+            Object.keys(recordData).map((cell, index) =>
+                <div role="cell" key={`${_key}_${index}`} className={styles.cell}>
+                    {canRender(recordData[cell]) ?
+                        <CellView value={recordData[cell]} isDateColumn={new RegExp("date", "ig").test(cell)} />
+                        : null}
+                </div >)
         }
-    </div>
+    </>
 }
 
 export { RowView }

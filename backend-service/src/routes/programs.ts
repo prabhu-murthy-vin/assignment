@@ -15,6 +15,24 @@ router.get('/', async (req: Request, res: Response, next: NextFunction) => {
   }
 });
 
+
+router.get('/tiles', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const programs = await prisma.program.findMany({
+      // include: { studies: true },
+      select: {
+        id: true,
+        name: true,
+        status: true,
+        therapeuticArea: true
+      }
+    });
+    res.json(programs);
+  } catch (error) {
+    next(error);
+  }
+});
+
 // GET program by ID
 router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
   try {

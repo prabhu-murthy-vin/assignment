@@ -1,0 +1,111 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* width: 400px; */
+
+    /* border: 1px solid red; */
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+
+    span {
+        margin-right: 0.5rem;
+    }
+}
+
+.footer {
+    display: flex;
+}
+
+.milestone_item {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 40px;
+    position: relative;
+    align-items: center;
+    z-index: 10;
+    background: #fff;
+}
+
+.milestone_items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0%;
+        right: 50%;
+        width: 100%;
+        height: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: -1;
+        background: red;
+        border-radius: 6px;
+    }
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.date {
+    padding: 0.5rem;
+    border-radius: 10px;
+    background: #eee;
+    width: auto;
+}
+
+.text {
+    display: flex;
+    font-weight: 300;
+}
+
+.name {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.25rem;
+    margin: 1rem 0;
+}
+
+.icon {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+}
+
+.danger {
+    background: red;
+}
+
+.success {
+    background: green;
+}
+
+.amber {
+    background: orange;
+}
+
+.default {
+    background: gray;
+}

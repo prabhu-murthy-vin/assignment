@@ -1,12 +1,14 @@
+import Footer from "@/components/page-components/footer";
+import Header from "@/components/page-components/header";
+
 export default function ({ children }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return <div>
-        <div>
-            test
-        </div>
-        <div>
+    return <>
+        <Header />
+        <main style={{ minHeight: "100vh", padding: "1rem", marginTop: "90px" }}>
             {children}
-        </div>
-    </div>
+        </main>
+        <Footer />
+    </>
 }

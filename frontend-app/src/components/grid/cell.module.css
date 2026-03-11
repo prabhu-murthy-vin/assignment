@@ -1,0 +1,9 @@
+.cell {
+    display: flex;
+    padding: 1rem 0.2rem;
+    box-sizing: border-box;
+    align-items: left;
+    justify-content: left;
+    text-decoration: none;
+    color: #000;
+}

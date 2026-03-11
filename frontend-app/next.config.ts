@@ -1,8 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-    env: {
-
+    async redirects() {
+        return [
+            {
+                source: "/",
+                destination: "/home/dashboard",
+                permanent: true
+            }
+        ]
     }
 };
 

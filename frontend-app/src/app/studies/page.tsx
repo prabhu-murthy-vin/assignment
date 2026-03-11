@@ -1,15 +1,23 @@
+import { Grid } from "@/components/grid"
+import { transFormTableDataForRender } from "@/lib/utils"
 import { Study } from "@/models/study"
+import { FunctionComponent } from "react"
 
 
-const StudiesPage = async () => {
+const StudiesPage: FunctionComponent<{ id?: string }> = async ({ id }) => {
     try {
-        const data = await fetch("http://localhost:3000/api/studies")
+        const url = id ? `http://localhost:3000/api/studies/program/${id}` : "http://localhost:3000/api/studies";
+        const data = await fetch(url)
 
-        const studies: Study[] = await data.json()
+        const studies: [] = await data.json()
 
-        return <ul>
-            {studies.map(study => <span>{JSON.stringify(study)}</span>)}
-        </ul>
+        // const studiesData = studies.map(study => ({
+        //     [study["id"]]: study
+        // }))
+
+        const studiesData = transFormTableDataForRender(studies)
+
+        return <Grid table={studiesData} config={{ columns: 11 }} />
     } catch (error) {
         console.log(error)
     }

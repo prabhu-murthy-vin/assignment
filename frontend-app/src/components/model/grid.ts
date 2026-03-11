@@ -8,16 +8,22 @@ export type CellValueModel = string | number | "HTML" | Date
 
 export type CellModel = {
     id?: string,
-    type?: CellTypeModel
-    value: CellValueModel
+    type?: CellTypeModel,
+    value: CellValueModel,
+    isDateColumn?: boolean,
+    [key: string]: any
 }
 
 export type TableModel = RowModel[]
 
 export type TableConfig = {
-    width: string | number;
-    type: "compact" | "free";
-    headers: Record<string, string>
+    width?: string | number;
+    type?: "compact" | "free";
+    headers?: string[];
+    columns?: number
+    hyperlinkRow?: {
+        url: string
+    }
 }
 
 export interface GridModel {
