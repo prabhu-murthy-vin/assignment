@@ -1,7 +1,6 @@
 import { FunctionComponent } from "react";
 import { CardModel } from "../model/card";
 import styles from "./card.module.css";
-import { Dayjs } from "dayjs";
 
 const Card: FunctionComponent<CardModel> = ({ title, data }) => {
 

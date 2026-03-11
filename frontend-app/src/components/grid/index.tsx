@@ -1,6 +1,6 @@
 "use client"
 import { CSSProperties, FunctionComponent } from "react"
-import { GridModel, RowModel } from "../model"
+import { GridModel } from "../model"
 import { RowView } from "./row"
 import clsx from "clsx";
 import styles from './row.module.css';
@@ -23,7 +23,7 @@ const Grid: FunctionComponent<GridModel> = ({ table, config }) => {
         <div role="" className={styles.table_body}>
             {table.map((record, index) => record ? <div key={`outer_record_wrap_${index}_${record["id"]}`}>
                 {index === 0 ? <div role="row" className={headerClasses}>{
-                    headers.map((header, index) => <div key={`index_${header}`} className={styles.header_cell}>{header}</div>)
+                    headers.map((header) => <div key={`index_${header}`} className={styles.header_cell}>{header}</div>)
                 }</div> : null}
                 {
                     config?.hyperlinkRow ? <Link href={`${config.hyperlinkRow.url}/${Object.keys(record)[0]}`} style={{ textDecoration: "none" }} scroll>

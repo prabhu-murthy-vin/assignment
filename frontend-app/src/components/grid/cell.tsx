@@ -5,7 +5,7 @@ import { CellModel } from "../model";
 import styles from "./cell.module.css"
 import clsx from "clsx";
 import { isArray, isString } from "@/lib/utils";
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 
 const CellView: FunctionComponent<CellModel> = ({ type, value, isDateColumn }) => {
 
