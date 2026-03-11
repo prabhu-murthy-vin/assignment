@@ -1,21 +1,21 @@
 program_id,name,therapeutic_area,phase,start_date,end_date,status,manager
-PRG001,Program-1-Thera,Infectious Disease,Phase II,2022-08-12,2024-05-09,On Hold,Dr. Smith
-PRG002,Program-2-Bio,Neurology,Registration,2021-05-02,2023-03-07,Active,Dr. Brown
-PRG003,Program-3-Thera,Respiratory,Discovery,2022-02-15,2024-08-06,Active,Dr. Johnson
-PRG004,Program-4-Pharma,Neurology,Discovery,2020-03-17,2021-03-18,Active,Dr. Williams
-PRG005,Program-5-Thera,Immunology,Preclinical,2021-03-18,2021-06-02,Discontinued,Dr. Brown
-PRG006,Program-6-Bio,Neurology,Phase III,2020-08-20,2020-10-24,Active,Dr. Smith
-PRG007,Program-7-Bio,Endocrinology,Discovery,2022-11-30,2023-02-19,Active,Dr. Smith
-PRG008,Program-8-Pharma,Infectious Disease,Registration,2020-12-31,2021-10-05,On Hold,Dr. Brown
-PRG009,Program-9-Med,Endocrinology,Preclinical,2020-11-03,2021-12-14,Active,Dr. Johnson
-PRG010,Program-10-Pharma,Neurology,Phase III,2020-05-10,2022-07-15,On Hold,Dr. Johnson
-PRG011,Program-11-Thera,Immunology,Discovery,2021-09-06,2022-10-03,Active,Dr. Jones
-PRG012,Program-12-Pharma,Cardiovascular,Phase III,2020-02-20,2020-04-02,On Hold,Dr. Brown
-PRG013,Program-13-Med,Respiratory,Phase II,2022-07-31,2022-10-28,Active,Dr. Johnson
-PRG014,Program-14-Thera,Neurology,Registration,2022-07-04,2023-07-16,Discontinued,Dr. Williams
-PRG015,Program-15-Med,Endocrinology,Phase III,2021-08-03,2021-10-18,Active,Dr. Johnson
-PRG016,Program-16-Bio,Infectious Disease,Discovery,2020-04-17,2022-01-08,Discontinued,Dr. Smith
-PRG017,Program-17-Bio,Immunology,Preclinical,2020-09-05,2022-07-25,On Hold,Dr. Smith
-PRG018,Program-18-Bio,Infectious Disease,Phase III,2020-01-06,2022-01-05,Active,Dr. Brown
-PRG019,Program-19-Med,Endocrinology,Phase II,2021-03-09,2023-04-02,On Hold,Dr. Brown
-PRG020,Program-20-Thera,Endocrinology,Phase I,2022-06-08,2024-06-06,On Hold,Dr. Smith
+PRG001,Program-1-Thera,Cardiovascular,Phase II,2022-01-06,2022-01-10,Discontinued,Dr. Brown
+PRG002,Program-2-Med,Infectious Disease,Preclinical,2022-09-08,2023-02-03,On Hold,Dr. Smith
+PRG003,Program-3-Thera,Immunology,Registration,2022-09-07,2024-11-06,On Hold,Dr. Williams
+PRG004,Program-4-Bio,Respiratory,Phase II,2021-09-30,2023-12-24,On Hold,Dr. Williams
+PRG005,Program-5-Bio,Endocrinology,Registration,2021-05-28,2023-07-13,Active,Dr. Smith
+PRG006,Program-6-Thera,Endocrinology,Registration,2021-08-07,2022-05-17,On Hold,Dr. Smith
+PRG007,Program-7-Pharma,Respiratory,Discovery,2021-10-06,2023-01-23,On Hold,Dr. Brown
+PRG008,Program-8-Thera,Immunology,Phase II,2022-09-12,2024-10-05,Active,Dr. Williams
+PRG009,Program-9-Bio,Immunology,Phase I,2021-01-19,2022-02-03,Active,Dr. Williams
+PRG010,Program-10-Pharma,Cardiovascular,Post-marketing,2021-04-10,2022-02-05,On Hold,Dr. Jones
+PRG011,Program-11-Med,Respiratory,Preclinical,2021-07-04,2023-09-09,Discontinued,Dr. Johnson
+PRG012,Program-12-Med,Cardiovascular,Phase II,2021-09-22,2024-04-14,On Hold,Dr. Williams
+PRG013,Program-13-Bio,Respiratory,Phase III,2020-12-31,2023-08-24,On Hold,Dr. Smith
+PRG014,Program-14-Thera,Neurology,Preclinical,2020-04-05,2020-12-07,On Hold,Dr. Williams
+PRG015,Program-15-Med,Cardiovascular,Registration,2020-12-03,2022-11-28,Active,Dr. Jones
+PRG016,Program-16-Bio,Respiratory,Post-marketing,2022-05-26,2023-07-20,On Hold,Dr. Jones
+PRG017,Program-17-Bio,Immunology,Phase I,2020-01-13,2021-02-09,Active,Dr. Williams
+PRG018,Program-18-Pharma,Infectious Disease,Phase II,2020-07-16,2023-01-23,On Hold,Dr. Johnson
+PRG019,Program-19-Med,Respiratory,Discovery,2022-10-01,2024-04-13,Active,Dr. Jones
+PRG020,Program-20-Bio,Infectious Disease,Post-marketing,2022-01-20,2023-01-26,On Hold,Dr. Smith
