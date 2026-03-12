@@ -74,7 +74,7 @@ Start the MySQL container and automatically populate the database:
 docker-compose up -d
 ```
 
-The `docker-compose.yaml` file will:
+The `docker-compose.yml` file will:
 - Spin up a **MySQL container** (`drug_dashboard` instance) with the database
 - Temporarily spin up an **app container** to execute migrations and seed data
 - Automatically load all initial data into the database
@@ -254,7 +254,7 @@ The complete database schema is defined in `prisma/schema.prisma`. This file con
 
 ### Prisma Configuration
 
-The primary configuration file is `prisma/prisma.config.ts` (located at project root). This file manages:
+The primary configuration file is `prisma.config.ts` (located at the repository root). This file manages:
 - Database connection settings
 - ORM behavior and defaults
 - Provider-specific options
@@ -279,7 +279,7 @@ It is executed automatically during the Docker setup and can be manually trigger
 
 ## Docker Architecture
 
-### docker-compose.yaml
+### docker-compose.yml
 
 Orchestrates the complete containerized environment:
 - **MySQL Service**: Runs the database container (`drug_dashboard`) with persistent storage

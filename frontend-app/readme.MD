@@ -1,6 +1,6 @@
 # Drug Discovery Dashboard
 
-A **Next.js 13** drug discovery program management dashboard built with minimal dependencies, atomic component architecture, and server-side rendering for optimal performance.
+A **Next.js 16** drug discovery program management dashboard built with minimal dependencies, atomic component architecture, and server-side rendering for optimal performance.
 
 ---
 
@@ -10,9 +10,9 @@ A **Next.js 13** drug discovery program management dashboard built with minimal 
 
 This project showcases a scalable, extensible frontend architecture built with the following principles:
 
-- **Minimal dependencies**: No third-party UI libraries (no Tailwind). Pure CSS modules + React components for complete control and extensibility
+- **Minimal dependencies**: Pure CSS Modules by default for complete control and extensibility. Tailwind is included as an optional dev dependency for future use.
 - **Atomic component design**: UI elements broken down into reusable, single-responsibility components
-- **Server-side rendering**: Leverages Next.js 13 App Router and Server Components to minimize client-side state
+- **Server-side rendering**: Leverages Next.js 16 App Router and Server Components to minimize client-side state
 - **Efficient state management**: Minimal client-side state; data flow primarily through Next.js routing and server capabilities
 - **Accessibility-first**: Built with semantic HTML and accessibility best practices (note: not responsive)
 - **Extensibility**: Architecture designed as a template—easily integrate third-party styling (e.g., Tailwind) or extend components without impacting the broader codebase
@@ -21,7 +21,7 @@ This project showcases a scalable, extensible frontend architecture built with t
 
 ## Tech Stack
 
-**Frontend:** Next.js 13 (App Router) for framework, SSR, and routing
+**Frontend:** Next.js 16 (App Router) for framework, SSR, and routing
 
 **Styling:** CSS Modules for component-scoped styling
 
@@ -55,8 +55,13 @@ This project showcases a scalable, extensible frontend architecture built with t
 │   │   └── [component-name].module.css # Component-scoped styles
 │   ├── lib/
 │   │   └── utils.ts                   # Utility functions and helpers
-│   └── public/                        # Static assets
-│   └── models/                        # typescript modesl
+│   └── models/                        # TypeScript data models
+├── public/                            # Static assets
+├── tests/                             # Vitest configuration and test files
+├── package.json                       # Project scripts & dependencies
+├── tsconfig.json                      # TypeScript configuration
+├── biome.json                         # Code formatting and linting
+└── vitest.config.ts                   # Vitest test configuration
 ```
 
 ### Folder Descriptions
@@ -65,7 +70,7 @@ This project showcases a scalable, extensible frontend architecture built with t
 
 **`components/`** – Atomic, single-responsibility React components. Each component is self-contained with its own CSS module and can be used across the application without side effects.
 
-**`lib/utils/`** – Shared utility functions for data transformation, formatting, and business logic.
+**`lib/`** – Shared utility functions for data transformation, formatting, and business logic (contains `utils.ts`).
 
 ---
 
@@ -247,7 +252,7 @@ cp .env.example .env.local
 bun run dev
 ```
 
-Open [http://localhost:4000](http://localhost:4000) in your browser.
+Open [http://localhost:4000](http://localhost:4000) in your browser (frontend runs on port 4000).
 
 ### Build for Production
 
@@ -317,6 +322,6 @@ Note: This app is not responsive and is designed for desktop use but can be easi
 
 ## Project as a Template
 
-This codebase serves as a **template and reference architecture** demonstrating scalable component structure for large applications, minimal dependencies approach, server-side rendering best practices with Next.js 13, atomic design principles in practice, and extensible patterns for adding features.
+This codebase serves as a **template and reference architecture** demonstrating scalable component structure for large applications, minimal dependencies approach, server-side rendering best practices with Next.js 16, atomic design principles in practice, and extensible patterns for adding features.
 
 Use this as a starting point for similar data-driven dashboards or applications requiring a lightweight, extensible frontend.
