@@ -33,7 +33,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.data-api
-    depends_on:
+      data-loader:
+        consition: service_healthy
       mysql:
         condition: service_healthy
     ports:

@@ -4,7 +4,7 @@ A **Next.js 13** drug discovery program management dashboard built with minimal 
 
 ---
 
-![home](localhost_4000_home_dashboard_PRG002.png)
+![home](<./readme-assets/home.png>)
 
 ## Architecture & Design Philosophy
 
@@ -33,35 +33,37 @@ This project showcases a scalable, extensible frontend architecture built with t
 
 **Class Management:** clsx for conditional CSS class binding
 
-**Backend:** Express (BFF) for Backend-for-Frontend API layer
+**Backend:** Express Backend (API)
 
 ---
 
 ## Project Structure
 
 ```
-├── app/
-│   └── home/
-│       └── dashboard/             # Dashboard core layout and landing page with programs overview
-├── components/
-│   ├── card/                      # Card wrapper component
-│   ├── grid/                      # Table grid renderer
-│   ├── loader/                    # Loading state component
-│   ├── model/                     # component typescrpt models
-│   ├── page-components/           # Page-level composite components
-│   ├── slate/                     # Project highlights display
-│   ├── tiles/                     # Program tile display
-│   └── [component-name].module.css # Component-scoped styles
-├── lib/
-│   └── utils.ts                   # Utility functions and helpers
-└── public/                        # Static assets
+├── src/
+│   ├── app/
+│   │   └── home/
+│   │       └── dashboard/             # Dashboard core layout and landing page with programs overview
+│   ├── components/
+│   │   ├── card/                      # Card wrapper component
+│   │   ├── grid/                      # Table grid renderer
+│   │   ├── loader/                    # Loading state component
+│   │   ├── model/                     # component typescrpt models
+│   │   ├── page-components/           # Page-level composite components
+│   │   ├── slate/                     # Project highlights display
+│   │   ├── tiles/                     # Program tile display
+│   │   └── [component-name].module.css # Component-scoped styles
+│   ├── lib/
+│   │   └── utils.ts                   # Utility functions and helpers
+│   └── public/                        # Static assets
+│   └── models/                        # typescript modesl
 ```
 
 ### Folder Descriptions
 
-**`app/`** – Next.js App Router pages and layouts. Minimal logic; primarily handles routing and server-side data fetching.
+**`app/`** – Next.js App Router pages, server components and layouts. primarily handles routing and server-side data fetching.
 
-**`components/reusable/`** – Atomic, single-responsibility React components. Each component is self-contained with its own CSS module and can be used across the application without side effects.
+**`components/`** – Atomic, single-responsibility React components. Each component is self-contained with its own CSS module and can be used across the application without side effects.
 
 **`lib/utils/`** – Shared utility functions for data transformation, formatting, and business logic.
 
@@ -135,7 +137,7 @@ This app minimizes client-side state by leveraging Next.js capabilities:
 
 1. User clicks a program tile → URL updates
 2. Next.js router navigates to `/dashboard/program/<id>`
-3. Server component fetches program details from Express BFF
+3. Server component fetches program details from Express API
 4. Page re-renders with new data
 5. Studies grid, Slate view and milestone view update accordingly
 
@@ -184,7 +186,7 @@ Next.js App → Express Server (BFF) → Prisma ORM → Database
 
 ### App Header
 
-![app header](<localhost_4000_home_dashboard_PRG002 (1).png>)
+![app header](<./readme-assets/app-header.png>)
 
 Elements: Logo (top left), Navigation menu (top right) with quick links to all programs, studies, and milestones
 
@@ -192,7 +194,7 @@ Elements: Logo (top left), Navigation menu (top right) with quick links to all p
 
 ### Tiles View (Programs Overview)
 
-![tiles view](<localhost_4000_home_dashboard_PRG002 (2).png>)
+![tiles view](<./readme-assets/tiles.png>)
 
 Elements: Grid of program tiles, each showing program name and summary, clickable to select and populate the dashboard, welcome message below the tiles
 
@@ -200,7 +202,7 @@ Elements: Grid of program tiles, each showing program name and summary, clickabl
 
 ### Slate View (Program Highlights)
 
-![slate view](<localhost_4000_home_dashboard_PRG002 (3).png>)
+![slate view](<./readme-assets/slate.png>)
 
 Elements: Program summary and key metadata, high-level overview of selected program, positioned above studies grid
 
@@ -208,7 +210,7 @@ Elements: Program summary and key metadata, high-level overview of selected prog
 
 ### Studies Grid
 
-![studies grid](<localhost_4000_home_dashboard_PRG002 (4).png>)
+![studies grid](<./readme-assets/studies-grid.png>)
 
 Elements: Table of studies for the selected program, columns include Study Name, Status, Lead Scientist, Start Date, click row to navigate to milestone view
 
@@ -216,7 +218,7 @@ Elements: Table of studies for the selected program, columns include Study Name,
 
 ### Milestone View
 
-![milestone view](<localhost_4000_home_dashboard_PRG002 (5).png>)
+![milestone view](<./readme-assets/milestones.png>)
 
 Elements: Status summary (In Progress, Completed, Failed counts), table of milestones for the selected study, columns include Milestone Name, Status, Target Date, Actual Date
 
@@ -240,7 +242,6 @@ bun install
 
 # Set up environment variables
 cp .env.example .env.local
-# Edit .env.local with your Express BFF URL
 
 # Run the development server
 bun run dev

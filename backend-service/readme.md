@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project provides a complete setup for **Prisma ORM with MySQL** as the backend database. It includes automated scripts for database migration, data generation, and seeding, all orchestrated through Docker for seamless development and testing.
+This project provides a comprehensive setup for Prisma ORM with MySQL as the backend database, integrated with an Express application that serves as the API for the Drug Dashboard. The setup includes automated scripts for database migration, data generation, and seeding, all orchestrated through Docker for seamless development and testing.
 
 ---
 
@@ -27,9 +27,10 @@ project-root/
 │   ├── schema.prisma          # Complete database schema
 │   ├── seed.ts                # Data seeding script
 │   ├── migrations/            # Pre-created migration SQL files
-│   └── prisma.config.ts       # Primary Prisma configuration
 ├── data/
 │   └── [test data generation scripts]
+├── prisma.config.ts        # prisma configuration
+├── src                        # Express App
 ├── docker-compose.yaml        # MySQL & app container orchestration
 ├── Dockerfile                 # App container configuration
 └── package.json               # Project scripts & dependencies
@@ -166,23 +167,30 @@ It is executed automatically during the Docker setup and can be manually trigger
 
 Orchestrates the complete containerized environment:
 - **MySQL Service**: Runs the database container (`drug_dashboard`) with persistent storage
-- **App Service**: Temporarily runs to execute migrations and seed data
+- **Data loader Service**: Temporarily runs to execute migrations and seed data
+- **Data API**: API for drug dashboard
 
-### Dockerfile
+### Dockerfile.data-loader
 
-Configures the application container to:
+Configures the container to:
 - Connect to the MySQL database
 - Execute migration scripts
 - Populate the database with seed data
+
+### Dockerfile.data-api
+
+- Starts the drug dashboard API
 
 ---
 
 ## Workflow Summary
 
-1. **Start Docker** with `docker-compose up -d`
-2. **Automatic execution** of pre-created migrations and seeding
-3. **3 tables created** in the `drug_dashboard` database (Programs, Studies, Milestones)
-4. **Database ready** for development and testing
+1. **Build Docker setup** with `docker-compose up build`
+2. **Start Docker** with `docker-compose up -d`
+3. **Automatic execution** of pre-created migrations and seeding
+4. **3 tables created** in the `drug_dashboard` database (Programs, Studies, Milestones)
+5. **Database ready** for development
+6. **Express API** up and running
 
 ---
 
