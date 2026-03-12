@@ -4,13 +4,13 @@ A full-stack drug discovery program management dashboard with a modern frontend 
 
 ## Overview
 
-This project provides a comprehensive platform for managing drug discovery programs, studies, and milestones. It features a responsive next-generation frontend dashboard and a robust Express backend with Prisma ORM for data management.
+The Project features a responsive next-generation frontend dashboard and a robust Express backend with Prisma ORM for data management.
 
 ## Project Structure
 
 ```
 drug-discovery-dashboard/
-├── frontend-app/          # Next.js 13 dashboard application
+├── frontend-app/          # Next.js 16 dashboard application
 ├── backend-service/       # Express API with Prisma ORM
 └── README.md             # This file
 ```
@@ -23,7 +23,7 @@ Navigate to the frontend application and follow the setup instructions:
 
 📖 [Frontend Documentation](frontend-app/readme.MD)
 
-- Next.js 13 with App Router
+- Next.js 16 with App Router
 - CSS Modules for styling
 - Server-side rendering
 - Minimal dependencies
@@ -43,7 +43,7 @@ Navigate to the backend service and follow the setup instructions:
 
 | Layer | Technology |
 |-------|-----------|
-| Frontend | Next.js 13, React, CSS Modules |
+| Frontend | Next.js 16, React, CSS Modules |
 | Backend | Express, TypeScript, Prisma |
 | Database | MySQL |
 | Containerization | Docker & Docker Compose |
