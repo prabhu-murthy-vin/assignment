@@ -56,7 +56,17 @@ Ensure you have the following installed on your system:
 
 ### Initial Setup
 
-#### Step 1: Boot Docker Environment
+#### Step 1: Generate Prisma Client
+
+Before running Docker, generate the Prisma client:
+
+```bash
+bunx prisma generate
+```
+
+This creates the Prisma client for database operations.
+
+#### Step 2: Boot Docker Environment
 
 Start the MySQL container and automatically populate the database:
 
@@ -70,7 +80,7 @@ The `docker-compose.yaml` file will:
 - Automatically load all initial data into the database
 - Create **3 tables** as defined in the pre-created migration scripts
 
-#### Step 2: Configure Environment Variables
+#### Step 3: Configure Environment Variables
 
 Copy `.env.example` to `.env` and update the values:
 
@@ -147,6 +157,7 @@ All scripts are defined in `package.json` and should be executed using Bun:
 
 | Script | Description |
 |--------|-------------|
+| `bun run prisma:generate` | Generates the Prisma client for database operations. |
 | `bun run migrate` | Deploys all pending Prisma migrations to the MySQL database. |
 | `bun run seed` | Executes the seed script to populate the database with initial test data. |
 | `bun run init:db` | Runs the complete setup sequence: migration → seeding. |
@@ -288,11 +299,12 @@ Orchestrates the complete containerized environment:
 
 ## Workflow Summary
 
-1. **Start Docker** with `docker-compose up -d`
-2. **Automatic execution** of pre-created migrations and seeding
-3. **3 tables created** in the `drug_dashboard` database (Programs, Studies, Milestones)
-4. **Database ready** for development and testing
-5. **Start the API** with `bun run dev` or `bun run start`
+1. **Generate Prisma Client** with `bunx prisma generate` (required before Docker)
+2. **Start Docker** with `docker-compose up -d`
+3. **Automatic execution** of pre-created migrations and seeding
+4. **3 tables created** in the `drug_dashboard` database (Programs, Studies, Milestones)
+5. **Database ready** for development and testing
+6. **Start the API** with `bun run dev` or `bun run start`
 
 ---
 
@@ -314,7 +326,12 @@ If migrations fail to deploy:
 3. Ensure `prisma/migrations/` folder exists and contains migration files
 4. Re-run `docker-compose up -d` to retry the complete setup
 
-If the API fails to start:
+If the API fails to start with "Cannot find module '.prisma/client'":
+1. Generate the Prisma client: `bun run prisma:generate`
+2. Ensure all dependencies are installed: `bun install`
+3. Try starting the API again: `bun run dev`
+
+If the API fails to start with other errors:
 1. Verify `.env` is present and correctly configured
 2. Check for port conflicts on `PORT=3000`
 3. Ensure all dependencies are installed: `bun install`

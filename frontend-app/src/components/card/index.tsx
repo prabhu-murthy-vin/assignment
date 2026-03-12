@@ -11,7 +11,7 @@ const Card: FunctionComponent<CardModel> = ({ title, data }) => {
         <div className={styles.body}>
             <div className={styles.values}>
                 {
-                    Object.entries(data).map(([key, value], index) => {
+                    Object.entries(data).map(([key, value]) => {
                         return canRender(value) ? <div className={styles.value_row} key={`${key}_index`}>
                             <span className={styles.value_text_title}>{key} : </span>
                             <span className={styles.value_text_val}>{value.toString()}</span>

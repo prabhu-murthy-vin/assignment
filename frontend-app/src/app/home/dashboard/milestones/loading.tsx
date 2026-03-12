@@ -1,5 +1,5 @@
 import Loader from "@/components/loader";
 
 export default function () {
-    return <Loader text="milestones" />
+	return <Loader text="milestones" />;
 }

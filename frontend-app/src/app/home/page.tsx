@@ -1,3 +1,3 @@
-export default function() {
-    return <span>hello world</span>
+export default function () {
+	return <span>hello world</span>;
 }

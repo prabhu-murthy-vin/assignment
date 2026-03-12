@@ -1,5 +1,5 @@
-"use client"
+"use client";
 
 export default function () {
-    return <span>There was an error fecthing the milestones</span>
+	return <span>There was an error fecthing the milestones</span>;
 }

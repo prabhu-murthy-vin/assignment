@@ -1,5 +1,5 @@
 import Loader from "@/components/loader";
 
 export default function () {
-    return <Loader text="programs" />
+	return <Loader text="programs" />;
 }

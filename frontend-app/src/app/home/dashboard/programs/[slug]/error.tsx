@@ -1,5 +1,5 @@
-"use client"
+"use client";
 
 export default function () {
-    return <span>error</span>
+	return <span>error</span>;
 }
