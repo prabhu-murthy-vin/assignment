@@ -48,7 +48,7 @@ This project showcases a scalable, extensible frontend architecture built with t
 │   │   ├── card/                      # Card wrapper component
 │   │   ├── grid/                      # Table grid renderer
 │   │   ├── loader/                    # Loading state component
-│   │   ├── model/                     # component typescrpt models
+│   │   ├── model/                     # component TypeScript models
 │   │   ├── page-components/           # Page-level composite components
 │   │   ├── slate/                     # Project highlights display
 │   │   ├── tiles/                     # Program tile display
@@ -131,7 +131,7 @@ This app minimizes client-side state by leveraging Next.js capabilities:
 
 **Client components** – Limited to interactive elements (tile clicks, row selection) that trigger navigation
 
-**No global state library** – No Redux, Zustand, or Context API for data management. we might need it once the app gets complex and difficult to manage the state
+**No global state library** – No Redux, Zustand, or Context API for data management. This approach can evolve if the app becomes more complex and requires centralized state management.
 
 ### Data Flow
 

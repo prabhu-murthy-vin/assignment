@@ -2,20 +2,21 @@
 
 ## Overview
 
-This project provides a comprehensive setup for Prisma ORM with MySQL as the backend database, integrated with an Express application that serves as the API for the Drug Dashboard. The setup includes automated scripts for database migration, data generation, and seeding, all orchestrated through Docker for seamless development and testing.
+This project provides a complete setup for **Prisma ORM with MySQL** as the backend database, plus an **Express API** for interacting with the data. It includes automated scripts for database migration, data generation, and seeding, all orchestrated through Docker for seamless development and testing.
 
 ---
 
 ## Technology Stack
 
-| Component | Technology | Version |
-|-----------|-----------|---------|
-| **Language** | TypeScript | ES2022 |
-| **Package Manager** | Bun | Latest |
-| **Runtime** | Node.js | Latest |
-| **Database** | MySQL | Latest |
+| Component         | Technology   | Version   |
+|-------------------|--------------|-----------|
+| **Language**      | TypeScript   | ES2022    |
+| **Package Manager** | Bun         | Latest    |
+| **Runtime**       | Node.js      | Latest    |
+| **Database**      | MySQL        | Latest    |
 | **Containerization** | Docker & Docker Compose | Latest |
-| **ORM** | Prisma | Latest |
+| **ORM**           | Prisma       | Latest    |
+| **API Framework** | Express      | Latest    |
 
 ---
 
@@ -26,13 +27,19 @@ project-root/
 ├── prisma/
 │   ├── schema.prisma          # Complete database schema
 │   ├── seed.ts                # Data seeding script
-│   ├── migrations/            # Pre-created migration SQL files
+│   └── migrations/            # Pre-created migration SQL files
+├── src/
+│   ├── db.ts                  # Database client initialization
+│   ├── index.ts               # Express app entry point
+│   ├── middleware/            # Express middleware
+│   └── routes/                # API route definitions
 ├── data/
-│   └── [test data generation scripts]
-├── prisma.config.ts        # prisma configuration
-├── src                        # Express App
-├── docker-compose.yaml        # MySQL & app container orchestration
-├── Dockerfile                 # App container configuration
+│   └── scripts/               # Test data generation scripts
+├── prisma.config.ts           # Prisma configuration
+├── docker-compose.yml         # MySQL & app container orchestration
+├── Dockerfile.data-api        # Data API container configuration
+├── Dockerfile.data-loader     # Data loader container configuration
+├── .env                       # Environment variables
 └── package.json               # Project scripts & dependencies
 ```
 
@@ -63,6 +70,16 @@ The `docker-compose.yaml` file will:
 - Automatically load all initial data into the database
 - Create **3 tables** as defined in the pre-created migration scripts
 
+#### Step 2: Configure Environment Variables
+
+Copy `.env.example` to `.env` and update the values:
+
+```env
+DATABASE_URL="mysql://user:password@localhost:3306/drug_dashboard"
+PORT=3000
+NODE_ENV=development
+```
+
 ---
 
 ## Verification
@@ -85,9 +102,7 @@ Loaded Prisma config from prisma.config.ts.
 Running seed command `bun prisma/seed.ts` ...
 
 Programs seeded.
-
 Studies seeded.
-
 Milestones seeded.
 
 🌱  The seed command has been executed.
@@ -100,29 +115,119 @@ These logs confirm that:
 
 ---
 
+## Running the API
+
+### Development Mode (with hot reload)
+
+```bash
+bun run dev
+```
+
+The server will start on **http://localhost:3000** and automatically reload on file changes.
+
+### Production Mode
+
+```bash
+bun run start
+```
+
+### Build for Production
+
+```bash
+bun run build
+```
+
+This creates an optimized bundle in the **dist/** directory.
+
+---
+
 ## Available Scripts
 
 All scripts are defined in `package.json` and should be executed using Bun:
 
-### `bun run migrate`
-Deploys all pending Prisma migrations to the MySQL database.
+| Script | Description |
+|--------|-------------|
+| `bun run migrate` | Deploys all pending Prisma migrations to the MySQL database. |
+| `bun run seed` | Executes the seed script to populate the database with initial test data. |
+| `bun run init:db` | Runs the complete setup sequence: migration → seeding. |
+| `bun run dev` | Starts the Express API in development mode with hot reload. |
+| `bun run start` | Starts the Express API in production mode. |
+| `bun run build` | Builds the Express API for production. |
+
+---
+
+## API Endpoints
+
+| Resource   | Method | Endpoint                     | Description                     |
+|------------|--------|------------------------------|---------------------------------|
+| Programs   | GET    | `/api/programs`              | Get all programs with studies   |
+| Programs   | GET    | `/api/programs/:id`          | Get program by ID               |
+| Programs   | POST   | `/api/programs`              | Create new program              |
+| Programs   | PUT    | `/api/programs/:id`          | Update program                  |
+| Programs   | DELETE | `/api/programs/:id`          | Delete program                  |
+| Studies    | GET    | `/api/studies`               | Get all studies                 |
+| Studies    | GET    | `/api/studies/program/:programId` | Get studies by program      |
+| Studies    | GET    | `/api/studies/:id`           | Get study by ID                 |
+| Studies    | POST   | `/api/studies`               | Create new study                |
+| Studies    | PUT    | `/api/studies/:id`           | Update study                    |
+| Studies    | DELETE | `/api/studies/:id`           | Delete study                    |
+| Milestones | GET    | `/api/milestones`            | Get all milestones              |
+| Milestones | GET    | `/api/milestones/study/:studyId` | Get milestones by study     |
+| Milestones | GET    | `/api/milestones/:id`        | Get milestone by ID             |
+| Milestones | POST   | `/api/milestones`            | Create new milestone            |
+| Milestones | PUT    | `/api/milestones/:id`        | Update milestone                |
+| Milestones | DELETE | `/api/milestones/:id`        | Delete milestone                |
+
+---
+
+## Health Check
+
+Verify the API is running:
 
 ```bash
-bunx --bun prisma migrate deploy
+curl http://localhost:3000/health
 ```
 
-### `bun run seed`
-Executes the seed script to populate the database with initial test data.
+**Response:**
 
-```bash
-bunx --bun prisma db seed
+```json
+{ "status": "ok" }
 ```
 
-### `bun run init:db`
-Runs the complete setup sequence: migration → seeding.
+---
+
+## Example Requests
+
+### Create a Program
 
 ```bash
-bun run migrate && bun run seed
+curl -X POST http://localhost:3000/api/programs \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "TRIAL-2024",
+    "therapeuticArea": "Oncology",
+    "phase": "Phase III",
+    "startDate": "2024-01-01T00:00:00Z",
+    "endDate": "2025-12-31T00:00:00Z",
+    "status": "Active",
+    "manager": "Dr. Smith"
+  }'
+```
+
+### Get All Programs
+
+```bash
+curl http://localhost:3000/api/programs
+```
+
+### Update a Program
+
+```bash
+curl -X PUT http://localhost:3000/api/programs/{id} \
+  -H "Content-Type: application/json" \
+  -d '{
+    "status": "Completed"
+  }'
 ```
 
 ---
@@ -167,30 +272,27 @@ It is executed automatically during the Docker setup and can be manually trigger
 
 Orchestrates the complete containerized environment:
 - **MySQL Service**: Runs the database container (`drug_dashboard`) with persistent storage
-- **Data loader Service**: Temporarily runs to execute migrations and seed data
-- **Data API**: API for drug dashboard
+- **App Service**: Temporarily runs to execute migrations and seed data
 
-### Dockerfile.data-loader
+### Dockerfiles
 
-Configures the container to:
+**Dockerfile.data-loader** – Configures the data loader container to:
 - Connect to the MySQL database
 - Execute migration scripts
 - Populate the database with seed data
 
-### Dockerfile.data-api
-
-- Starts the drug dashboard API
+**Dockerfile.data-api** – Configures the API container to:
+- Start the Express API server
 
 ---
 
 ## Workflow Summary
 
-1. **Build Docker setup** with `docker-compose up build`
-2. **Start Docker** with `docker-compose up -d`
-3. **Automatic execution** of pre-created migrations and seeding
-4. **3 tables created** in the `drug_dashboard` database (Programs, Studies, Milestones)
-5. **Database ready** for development
-6. **Express API** up and running
+1. **Start Docker** with `docker-compose up -d`
+2. **Automatic execution** of pre-created migrations and seeding
+3. **3 tables created** in the `drug_dashboard` database (Programs, Studies, Milestones)
+4. **Database ready** for development and testing
+5. **Start the API** with `bun run dev` or `bun run start`
 
 ---
 
@@ -199,6 +301,7 @@ Configures the container to:
 - **Prisma acts as the ORM layer**, providing a middle layer for all data access operations (read and write)
 - **TypeScript with ES2022** ensures modern JavaScript features and type safety
 - **Bun** is used for fast package management and script execution
+- **Express** provides a robust API layer for all CRUD operations
 - All database operations should go through Prisma models defined in `schema.prisma`
 
 ---
@@ -211,10 +314,10 @@ If migrations fail to deploy:
 3. Ensure `prisma/migrations/` folder exists and contains migration files
 4. Re-run `docker-compose up -d` to retry the complete setup
 
-If you do not see the expected seed logs, verify that:
-- The migration step completed successfully
-- The `prisma/seed.ts` file exists and is properly configured
-- All seed data generation scripts in the `data/` folder are accessible
+If the API fails to start:
+1. Verify `.env` is present and correctly configured
+2. Check for port conflicts on `PORT=3000`
+3. Ensure all dependencies are installed: `bun install`
 
 ---
 
@@ -224,3 +327,4 @@ If you do not see the expected seed logs, verify that:
 - [MySQL Documentation](https://dev.mysql.com/doc/)
 - [Bun Documentation](https://bun.sh/docs)
 - [Docker Documentation](https://docs.docker.com/)
+- [Express Documentation](https://expressjs.com/)
